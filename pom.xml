@@ -113,4 +113,18 @@
         </dependencies>
     </dependencyManagement>
 
+    <!-- 推送到私服：mvn deploy -Dmaven.test.skip=true -->
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://192.168.30.131:7071/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://192.168.30.131:7071/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
