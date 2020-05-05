@@ -6,14 +6,31 @@ import lombok.Data;
  * 服务结果
  */
 @Data
-public class ServiceResult {
-    private boolean SUCCESS;   //是否成功
-    private String STATUS;   //返回码
-    private String MSG; //返回信息
-    private Object DATA;    //返回数据
+public class ResponseResult {
+    /**
+     * 是否成功
+     */
+    private Boolean SUCCESS;
 
-    public ServiceResult() {
+    /**
+     * 返回状态码
+     */
+    private Integer STATUS;
+
+    /**
+     * 返回信息
+     */
+    private String MSG;
+
+    /**
+     * 返回数据
+     */
+    private Object DATA;
+
+    public ResponseResult() {
+        this.SUCCESS = MsgCode.DEFAULT.getKey();
         this.STATUS = StatusCode.DEFAULT.getKey();
+        this.MSG = MsgCode.DEFAULT.getDesc();
     }
 
     /**
@@ -22,7 +39,7 @@ public class ServiceResult {
      * @param STATUS
      * @param MSG
      */
-    public ServiceResult(boolean SUCCESS, String STATUS, String MSG) {
+    public ResponseResult(Boolean SUCCESS, Integer STATUS, String MSG) {
         this.SUCCESS = SUCCESS;
         this.STATUS = STATUS;
         this.MSG = MSG;
@@ -35,7 +52,7 @@ public class ServiceResult {
      * @param MSG
      * @param DATA
      */
-    public ServiceResult(boolean SUCCESS, String STATUS, String MSG, Object DATA) {
+    public ResponseResult(Boolean SUCCESS, Integer STATUS, String MSG, Object DATA) {
         this.SUCCESS = SUCCESS;
         this.STATUS = STATUS;
         this.MSG = MSG;
